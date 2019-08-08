@@ -1,0 +1,1 @@
+export const Geturl =  'https://net-music.penkuoer.com'
