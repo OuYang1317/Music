@@ -2,14 +2,12 @@ import Navbar from '../component/Navbar'
 import Footer from '../component/Footer';
 import NextPageToken from './nextPageToken'
 import Longin from './longin_regin'
-import Songs from './Songs'
+import { connect }  from 'dva'
 function BasicLayout(props) {
     if(props.location.pathname === '/nextPageToken'){
       return <NextPageToken>{ props.children }</NextPageToken>
     }
-    if(props.location.pathname === '/Songs'){
-      return <Songs>{ props.children }</Songs>
-    }
+   
     if(props.location.pathname === '/longin_regin'){
       return <Longin>{ props.children }</Longin>
     }
@@ -25,5 +23,7 @@ function BasicLayout(props) {
     </div>
   )
 }
-
-export default BasicLayout;
+function mapStateToprops(state){
+  return state.Songpaly
+}
+export default connect(mapStateToprops)(BasicLayout) ;

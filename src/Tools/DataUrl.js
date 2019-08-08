@@ -8,7 +8,7 @@ export const SerachDefalut = ()=>{
     return get('/search/default')
 }
 // 热搜内容
-export const Hotserach = () =>{
+export const Hotser = () =>{
     return get('/search/hot')
 }
 // 搜索建议
@@ -17,8 +17,8 @@ export const Suggest = (name) =>{
 }
 
 // 新歌速递
-export const  NewSong = (key) =>{
-    return get('/top/song',{type:key})
+export const  NewSong = (num) =>{
+    return get('/top/song',{type:num})
 }
 // 日推歌曲 （需要登录）
 export const Daysongs = () =>{
@@ -92,8 +92,8 @@ export const Songsdetail =(id) =>{
     return get('/song/detail',{ids:id})
 }
 // 最新MV
-export const Newvideo = (sum) =>{
-    return get ( '/mv/first',{limit:sum})
+export const Newvideo = () =>{
+    return get ( '/mv/first',{limit:10})
 }
 // 获取视频播放地址
 export const VideoUrl = (id) =>{

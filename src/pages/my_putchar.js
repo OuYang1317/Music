@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import './my_putchar.css'
 import {List} from 'antd-mobile'
 import Img from '../assets/jkik.jpg'
 import router from 'umi/router'
 const Item = List.Item;
 const Brief = Item.Brief;
-export default class my_putchar extends Component {
+ class my_putchar extends Component {
     tap(){
         console.log('aa')
     }
@@ -27,7 +26,7 @@ export default class my_putchar extends Component {
 
                 <h2 className="addPage"><span>我的歌单</span> <p onClick={this.tap.bind(this)}>+</p></h2>
                 <div>
-                    <Item thumb={Img} onClick={() => {router.push('/nextPageToken')}}>华语 <Brief>12首</Brief> </Item>
+                    <Item thumb={Img} onClick={() => {router.push({pathname:'/nextPageToken',search:{id:12}})}}>华语 <Brief>12首</Brief> </Item>
                     <Item thumb={Img} onClick={() => {}}>英语 <Brief>1首</Brief> </Item>
                     <Item thumb={Img} onClick={() => {}}>俄语 <Brief>121首</Brief> </Item>
                     <Item thumb={Img} onClick={() => {}}>汉语 <Brief>1232首</Brief> </Item>
@@ -43,3 +42,4 @@ export default class my_putchar extends Component {
         )
     }
 }
+export default my_putchar

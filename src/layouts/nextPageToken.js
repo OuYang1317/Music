@@ -1,7 +1,8 @@
 import React from 'react'
 import { NavBar, Icon } from 'antd-mobile';
 import router from 'umi/router';
-function nextPageToken() {
+function nextPageToken(props) {
+    console.log(props.children)
     return (
         <div>
             <div>

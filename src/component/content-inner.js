@@ -1,22 +1,34 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React,{ useState , useEffect } from 'react'
+import React,{ Component } from 'react'
 import { Grid } from 'antd-mobile'
 import {NewSong} from '../Tools/DataUrl'
-function content_inner(){
+import { connect  } from 'dva'
 
-    const [data,setData] = useState([])
-
-    useEffect(()=>{
-        NewSong(8).then(res=>{
-            setData(res.data.data.slice(88))
-        })
-    },[])
-    return (
-        <div className="newsongs">
+ class content_inner extends Component {
+                constructor(){
+                    super()
+                    this.state ={
+                        data:[]
+                    }
+                }
+        componentDidMount(){
+            NewSong(8).then(res=>{
+                this.setState({
+                    data:res.data.data.slice(88)
+                })
+            })
+        }
+        tap(index){
+            console.log(index)
+        }
+    render() {
+        const { data } = this.state
+        return (
+            <div className="newsongs">
             <Grid data={data}
                 columnNum={3}
                 renderItem={dataitem => (
-                    <div style={{ padding: '12.5px',}}>
+                    <div style={{ padding: '12.5px',}}  onClick = { this.tap.bind(this,dataitem.id) }   >
                     <img src={dataitem.album.blurPicUrl} style={{ width: '75px', height: '75px' }} alt="" />
                     <div style={{ color: '#888', fontSize: '10px', marginTop: '12px' }}>
                         <span>{dataitem.name}</span>
@@ -26,8 +38,8 @@ function content_inner(){
                 itemStyle={{borderRadius:'5px',margin:'5px',height:'130px',lineHeight:'1', backgroundColor:'rgba(255, 255, 255,.8)',boxShadow:'0px 0px 4px -2px #000'}}
                 hasLine={false}
                 />
-        </div>
-    )
+         </div>
+        )
+    }
 }
-
-export default content_inner
+export default  connect(state=>state.Data)(content_inner)

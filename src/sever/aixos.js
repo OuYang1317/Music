@@ -6,7 +6,6 @@ const Inertsever = axios.create({
     timeout:5000,
     baseURL:Geturl
 })
-
 Inertsever.interceptors.request.use(
     function(config){
         nprogress.start()
@@ -16,9 +15,6 @@ Inertsever.interceptors.request.use(
         return Promise.reject(error)
     }
 )
-
-
-// 
 Inertsever.interceptors.response.use(
     function(response) {
         nprogress.done()
@@ -31,16 +27,10 @@ Inertsever.interceptors.response.use(
       return Promise.reject(error);
     }
   );
-  
-
-
-
 export const get = (url,params) =>{
     return Inertsever.get(url,{
             params
         }
     )
 }
-
-
 export const post = (url ,data) => Inertsever.post(url,data)
