@@ -1,3 +1,4 @@
+/* eslint-disable react/no-direct-mutation-state */
 import React, { Component } from 'react'
 import { SearchBar, WhiteSpace, List, Toast, } from 'antd-mobile'
 import { Hotser, Serach, Getmusicurl, Getmusicdetail } from '../Tools/DataUrl'
@@ -7,14 +8,17 @@ const Brief = Item.Brief;
 var timer;
 // 搜索 标签
 const tap = (name, Point) => {
+    var a = document.getElementsByClassName('Contentlist')
+    Point.props.dispatch({type:'Musicdata/Show',payload:{none:"block",dis:'none'}})
     Serach(name).then(res => {
         Point.setState({
-            sralist: res.data.result.songs
+            sralist:res.data.result.songs
         })
+        Point.props.dispatch({type:'Musicdata/SaveSreach',payload:res.data.result.songs})
+        a[0].style.display = Point.props.Sreachflag.dis
+        a[1].style.display = Point.props.Sreachflag.none
     })
-    var a = document.getElementsByClassName('Contentlist')
-    a[0].style.display = 'none'
-    a[1].style.display = 'block'
+    
 }
 class Hotserach extends Component {
     constructor() {
@@ -25,12 +29,19 @@ class Hotserach extends Component {
         }
     }
     componentDidMount() {
+        var a = document.getElementsByClassName('Contentlist')
+        console.log(a)
         Hotser().then(res => {
             this.setState({
                 Hotlist: res.data.result.hots
             })
         })
-    this.props.dispatch({type:'MusicData/ChangeNum',payload:this.props.Musicurl.length-1})
+        console.log(this.props)
+            a[0].style.display = this.props.Sreachflag.dis
+            a[1].style.display = this.props.Sreachflag.none
+            this.setState({
+                sralist:this.props.Sreachdata
+            })
     }
     // 热搜标签 点击搜索
     sera(keyword) {
@@ -45,7 +56,7 @@ class Hotserach extends Component {
                 Toast.fail('因版权要求，该资源已下架', 2);
                 return
             }
-            this.props.dispatch({ type: 'Musicdata/palymusic', payload: { url: res.data.data[0].url}})
+            this.props.dispatch({ type: 'Musicdata/palymusic', payload: { url: res.data.data[0].url,id:index}})
             Getmusicdetail(index).then(res => {
                 this.props.dispatch({
                     type: 'Musicdata/changes', payload: {
@@ -56,10 +67,9 @@ class Hotserach extends Component {
                 })
             })
         })
-        this.props.dispatch({type:'MusicData/ChangeNum',payload:this.props.Musicurl.length-1})
     }
     render() {
-        const { Hotlist, sralist } = this.state
+        const { Hotlist ,sralist} = this.state
         return (
             <div>
                 <div className="Search">
