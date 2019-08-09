@@ -27,6 +27,8 @@ class Songpage extends Component {
             var pal = document.getElementsByClassName('PalySongs')[0]
             var cc = document.getElementsByClassName('am-slider-handle')[0]
             var Record = document.getElementsByClassName('record')[0]
+            var Songbgimg = document.getElementsByClassName('songbg')[0]
+            Songbgimg.style.backgroundImage = "url("+this.props.songimg+")"
             this.setState({
                     max:audio.duration
             })
@@ -53,7 +55,7 @@ class Songpage extends Component {
         if (audio.played.length === 1 && audio.paused === false) {
             pal.innerText = '开始'
             audio.pause();
-            this.props.dispatch({type:'Songpaly/palyBuffer',payload:false})
+            this.props.dispatch({type:'Musicdata/palyBuffer',payload:false})
             clearInterval(timer)
         } else {
             pal.innerText = '停止'
@@ -63,7 +65,7 @@ class Songpage extends Component {
                 Record.style.transform = "translate(-50%,-50%) rotateZ("+ this.state.t+"deg)"
             },50)
             audio.play();
-            this.props.dispatch({type:'Songpaly/palyBuffer',payload:true})
+            this.props.dispatch({type:'Musicdata/palyBuffer',payload:true})
         }
     }
     render() {
@@ -76,11 +78,11 @@ class Songpage extends Component {
                      mode="light"
                      icon={<Icon type="left" />}
                      onLeftClick={()=>cklickback()}
-                    >Angel With A Shotgun</NavBar>
+                    >{this.props.songname}</NavBar>
                 </div>
                 <div className="record">
                     <div className="songsImg">
-                        <img src={img} alt=""/>
+                        <img src={this.props.songimg} alt=""/>
                     </div>
                 </div>
                 <div className="Songsfooter">
@@ -116,4 +118,4 @@ class Songpage extends Component {
         )
     }
 }
-export default connect(state=>state.Songpaly)(Songpage) 
+export default connect(state=>state.Musicdata)(Songpage) 

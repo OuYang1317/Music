@@ -31,7 +31,7 @@ const Brief = Item.Brief;
                     <Item thumb={Img} onClick={() => {}}>俄语 <Brief>121首</Brief> </Item>
                     <Item thumb={Img} onClick={() => {}}>汉语 <Brief>1232首</Brief> </Item>
                 </div> 
-                <h2>收藏歌单</h2> 
+                <h2 className="addPage">收藏歌单</h2> 
                 <div> 
                     <Item thumb={Img} onClick={() => {}}>中国风 <Brief>112首</Brief> </Item>
                     <Item thumb={Img} onClick={() => {}}>披头士 <Brief>54首</Brief> </Item>

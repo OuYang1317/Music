@@ -1,6 +1,6 @@
 import {NewSong ,Songs ,Newvideo }  from '../Tools/DataUrl'
 export default {
-    name:'Data',
+    name:'SongData',
     state:{
         Newsong:[],
         Newvideo:[],

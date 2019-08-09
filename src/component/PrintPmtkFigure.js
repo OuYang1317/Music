@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from 'react'
 import { Carousel, WingBlank } from "antd-mobile"
-import img from  '../assets/jkik.jpg'
 import {Banner} from '../Tools/DataUrl'
  class PrintPmtkFigure extends Component {
       state = {

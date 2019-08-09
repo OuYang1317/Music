@@ -17,8 +17,8 @@ body {
   z-index: 9999;
 }
 .ContentPage{
-  padding-top: 55px;
-  padding-bottom:88px;
+  padding-top: 43px;
+  padding-bottom:80px;
 }
 .Footer{
   width: 100vw;
@@ -34,7 +34,7 @@ body {
 .Footer p:first-child{
   margin-top: 18px;
   font-size: 15px;
-  max-width: 14rem;
+  max-width: 8rem;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -114,7 +114,7 @@ body {
 .Search{
   width: 100vw;
   position: fixed;
-  top: 53px;
+  top: 43px;
   z-index: 9998;
 }
 .SearchContent{
@@ -135,7 +135,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0px 14px;
+  margin: 10px 0px;
+  font-size: 15px;
+  font-weight: 400;
 }
+
 .addPage p{
   margin: 0px;
   font-size: 30px;
@@ -214,7 +219,7 @@ body {
   background: none;
 }
 .am-navbar-title ,.am-navbar-light{
-  color: #fff !important;
+  font-size:20px !important;
 }
 .Songsnav .am-navbar{
   height: 3.75rem;
@@ -222,9 +227,6 @@ body {
 .Songsnav .am-icon-md{
   width: 2.0625rem;
   height: 2.75rem;
-}
-.Songsnav .am-navbar-title{
-  font-size:15px;
 }
 .Songs_footernavbar{
   width: 100vw;
@@ -404,4 +406,7 @@ body {
   padding: .3125rem;
   border: 1px solid #000;
   border-radius: .3125rem;
+}
+.SearchContent b{
+  margin-left: 10px;
 }

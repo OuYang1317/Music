@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tabs, WhiteSpace } from 'antd-mobile';
+import { Tabs } from 'antd-mobile';
 import router from 'umi/router';
 const tabs = [
   { title: '我的',tab:'my_putchar'},
@@ -20,7 +20,6 @@ function Navbar() {
             tabBarUnderlineStyle={{borderColor:'red',borderWidth: "1px"}}
             > 
             </Tabs>
-            <WhiteSpace />
         </div>
     )
 }

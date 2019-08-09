@@ -107,3 +107,15 @@ export const Videodetail = (id) =>{
 export const Allvideo = (id) =>{
     return get('/related/allvideo',{id:id})
 }
+// 获取歌曲链接
+export const Getmusicurl = (id)=>{
+    return get('/song/url',{id:id})
+}
+// 获取歌曲详情
+export const Getmusicdetail = (id) =>{
+    return get('/song/detail',{ids:id})
+}
+// 获取专辑内容
+export const Getalbum = (id) =>{
+    return get ('/album',{id:id})
+}

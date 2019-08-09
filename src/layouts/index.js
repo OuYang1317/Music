@@ -24,6 +24,6 @@ function BasicLayout(props) {
   )
 }
 function mapStateToprops(state){
-  return state.Songpaly
+  return state.Musicdata
 }
 export default connect(mapStateToprops)(BasicLayout) ;

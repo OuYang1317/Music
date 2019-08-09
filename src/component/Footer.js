@@ -1,4 +1,3 @@
-import img from '../assets/jkik.jpg'
 import router  from 'umi/router'
 import Audio from '../component/audio'
 import React, { Component } from 'react'
@@ -13,16 +12,12 @@ class Footer extends Component {
             if (audio.played.length === 1 && audio.paused === false) {
                 audio.pause();
                 paly.style.backgroundPosition='2px 4px'
-                this.props.dispatch({type:'Songpaly/palyBuffer',payload:false})
+                this.props.dispatch({type:'Musicdata/palyBuffer',payload:false})
             } else {
                 audio.play();
                 paly.style.backgroundPosition='-120px 4px'
-                this.props.dispatch({type:'Songpaly/palyBuffer',payload:true})
+                this.props.dispatch({type:'Musicdata/palyBuffer',payload:true})
             }
-        }
-        updating(props){
-            console.log(props)
-            console.log("aa")
         }
     componentDidMount(){
         var paly = document.getElementsByClassName('button_img')[0];
@@ -35,16 +30,17 @@ class Footer extends Component {
            },1000)
             
         }
+        
     render() {
         return (
             <div className="Footer">
            <Audio />
             <div className="symbolSize" onClick={()=>clicl()}>
-                <img  src= {img}  alt='nihao' />
+                <img  src= {this.props.songimg}  alt='nihao' />
             </div>
             <div className="TitleScreen" onClick={()=>clicl()}>
-                <p>Angel With A Shotgun</p>
-                <p>Nightcore</p>
+                <p>{this.props.songname}</p>
+                <p>{this.props.songer}</p>
             </div>
             <div className="button_" onClick={this.tap.bind(this)}>
                     <div className='button_img'>
@@ -54,4 +50,4 @@ class Footer extends Component {
         )
     }
 }
-export default  connect(state=>state.Songpaly)(Footer)
+export default  connect(state=>state.Musicdata)(Footer)
