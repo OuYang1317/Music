@@ -13,6 +13,7 @@ class Footer extends Component {
                 audio.pause();
                 paly.style.backgroundPosition='2px 4px'
                 this.props.dispatch({type:'Musicdata/palyBuffer',payload:false})
+                this.props.dispatch({type:'Musicdata/autoPal',payload:true})
             } else {
                 audio.play();
                 paly.style.backgroundPosition='-120px 4px'

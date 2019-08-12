@@ -4,7 +4,7 @@ import { Carousel, WingBlank } from "antd-mobile"
 import {Banner} from '../Tools/DataUrl'
  class PrintPmtkFigure extends Component {
       state = {
-        data: ['1'],
+        data: [],
         imgHeight: 220,
       }
 

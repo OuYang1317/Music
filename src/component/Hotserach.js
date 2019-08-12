@@ -1,7 +1,8 @@
 /* eslint-disable react/no-direct-mutation-state */
 import React, { Component } from 'react'
-import { SearchBar, WhiteSpace, List, Toast, } from 'antd-mobile'
-import { Hotser, Serach, Getmusicurl, Getmusicdetail } from '../Tools/DataUrl'
+import { SearchBar, WhiteSpace, List} from 'antd-mobile'
+import { Hotser, Serach} from '../Tools/DataUrl'
+import {Dpaly} from '../Tools/dianjibofang'
 import { connect } from 'dva'
 const Item = List.Item;
 const Brief = Item.Brief;
@@ -30,13 +31,11 @@ class Hotserach extends Component {
     }
     componentDidMount() {
         var a = document.getElementsByClassName('Contentlist')
-        console.log(a)
         Hotser().then(res => {
             this.setState({
                 Hotlist: res.data.result.hots
             })
         })
-        console.log(this.props)
             a[0].style.display = this.props.Sreachflag.dis
             a[1].style.display = this.props.Sreachflag.none
             this.setState({
@@ -49,24 +48,8 @@ class Hotserach extends Component {
     }
     // 点击获取播放地址
     paly(index) {
-        clearInterval(timer)
-        Getmusicurl(index).then(res => {
-        //    console.log(res.data.data[0].url)            歌曲音乐地址
-            if (res.data.data[0].url == null) {
-                Toast.fail('因版权要求，该资源已下架', 2);
-                return
-            }
-            this.props.dispatch({ type: 'Musicdata/palymusic', payload: { url: res.data.data[0].url,id:index}})
-            Getmusicdetail(index).then(res => {
-                this.props.dispatch({
-                    type: 'Musicdata/changes', payload: {
-                        songname: res.data.songs[0].name,
-                        songer: res.data.songs[0].ar[0].name,
-                        songimg: res.data.songs[0].al.picUrl
-                    }
-                })
-            })
-        })
+        const _this = this
+        Dpaly(index,timer,_this);
     }
     render() {
         const { Hotlist ,sralist} = this.state

@@ -29,7 +29,7 @@ body {
   box-shadow: -3px 1px 7px -2px #000;
   justify-content: space-between;
   background:#fff;
-  z-index: 9999;
+  z-index: 999999;
 }
 .Footer p:first-child{
   margin-top: 18px;
@@ -382,7 +382,7 @@ body {
 }
 .Bgimg{
   position: absolute;
-  z-index: 999999;
+  z-index: 9999999;
   top: 0px;
   left: 0px;
   background: #ccc;
@@ -408,4 +408,140 @@ body {
 }
 .SearchContent b{
   margin-left: 10px;
+}
+.Mended{
+  margin-top: 10px;
+  width: 100vw;
+  display: flex;
+  justify-content: space-around
+}
+.Recommend,.Classification,.Private{
+  width: 6.5rem;
+  height: 6.5rem;
+  background: red;
+  margin: 0px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: .75rem;
+  background: rgba(255,255,255,0.7)
+}
+.Recommend h1,.Classification h1,.Private h1{
+  margin: 0px;
+  font-size: 35px;
+  margin-top: 10px;
+}
+.Recommend h1{
+  color: #F55454;
+  font-size: 45px;
+}
+.Recommend p,.Classification p,.Private p{
+  font-size: 15px;
+  margin-top: 5px;
+}
+.Classification p,.Private p{
+  margin-top: 15px;
+}
+.xiangqing{
+position: absolute;
+width: 100vw;
+z-index: 99998;
+top: 0px;
+margin-bottom: 4.6875rem;
+}
+.xiangqing .am-navbar-light{
+  background: #fff;
+}
+.xiangqing .am-navbar-title{
+  font-size: 16px !important;
+}
+.listNav{
+  width: 100vw;
+  position: fixed;
+  z-index: 999;
+}
+.SOnglistD{
+  padding-top:40px
+}
+
+#nprogress .bar{
+  z-index: 99999999;
+}
+.Login,.TElLogin{
+  position: absolute;
+  top: 0px;
+  width: 100vw;
+  height: 100vh;
+  z-index:99999999;
+  
+}
+.Login{
+  background: url(./assets//333.jpg) no-repeat center;
+  background-size: cover;
+}
+.buJu{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.tellogin{
+  height:13.3125rem;
+  width: 18.625rem;
+  margin: 0 auto;
+}
+.am-button{
+  border-radius: 25px;
+  border: 1px solid #fff !important; 
+  margin: .3125rem 0px;
+}
+.Iconbalck{
+  margin: .3125rem;
+  color: #fff;
+
+}
+.am-toast{
+  z-index: 99999999;
+}
+.phonetel{
+  margin-top: 20px;
+}
+.TElLogin{
+  background: #fff;
+}
+.IconTelbalck{
+  color: #108ee9;
+}
+.TElLogin .am-navbar-title{
+  font-size: 18px !important; 
+}
+.phonetel .am-list-line{
+  border-bottom: 1px solid #DDD !important;
+}
+.Code{
+  width: 12.5rem;
+}
+.CodeContent .am-button{
+  width: 7.625rem !important;
+}
+.CodeContent{
+  display: flex;
+  justify-content: space-around;
+}
+.CodeContent .am-button,.LoginBtn .am-button{
+  border-radius: 5px !important;
+}
+.Code .am-list-item{
+  /* padding-left: 0px; */
+}
+.LoginBtn{
+  width: 16rem;
+  height: 3.4375rem;
+  margin: 0 auto;
+}
+.LoginBtn .am-button{
+  margin-top: 20px;
+  width: 100%;
 }

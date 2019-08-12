@@ -77,7 +77,7 @@ export const Hottopic = (num) =>{
 }
 // 获取精品歌单
 export const Songs = (num) =>{
-    return get('/top/playlist/highquality',{limit:num})
+    return get('/top/playlist/highquality',{limit:num,cat:'ACG'})
 }
 // 获取歌词
 export const Lyric = (id) =>{
@@ -118,4 +118,7 @@ export const Getmusicdetail = (id) =>{
 // 获取专辑内容
 export const Getalbum = (id) =>{
     return get ('/album',{id:id})
+}
+export const Getsonglist = (id)=>{
+    return get ('/playlist/detail',{id:id})
 }

@@ -4,10 +4,20 @@ function Unrecommended() {
     
     return (
         <div>
-            <div>
-                <div>
+            <div className="Mended">
+                <div className="Recommend" >
                     <h1>{title.getDate()}</h1>
-                   <span>每日推荐</span>
+                   <p>每日推荐</p>
+                </div>
+                <div className='Classification'>
+                <h1>分类</h1>
+                    <p>歌曲分类</p>
+
+                </div>
+                <div className="Private">
+                <h1>FM</h1>
+                    <p>私人FM</p>
+                    
                 </div>
                 
             </div>

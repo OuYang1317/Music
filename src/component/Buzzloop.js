@@ -1,11 +1,10 @@
 import React from 'react'
 import Img from '../assets/jkik.jpg'
 function Buzzloop() {
+    
     return (
         <div>
             <div className="Buzzloop_">
-
-          
             <div className="Buzzloop_content">
                 <div className="nihao">
                     <img src= {Img}  alt="图片"/>

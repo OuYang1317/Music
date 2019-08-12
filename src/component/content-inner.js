@@ -3,7 +3,8 @@ import React,{ Component } from 'react'
 import { Grid } from 'antd-mobile'
 import {NewSong} from '../Tools/DataUrl'
 import { connect  } from 'dva'
-
+import { Dpaly } from '../Tools/dianjibofang'
+var timer ;
  class content_inner extends Component {
                 constructor(){
                     super()
@@ -14,12 +15,13 @@ import { connect  } from 'dva'
         componentDidMount(){
             NewSong(8).then(res=>{
                 this.setState({
-                    data:res.data.data.slice(88)
+                    data:res.data.data.slice(91)
                 })
             })
         }
         tap(index){
-            console.log(index)
+            const _this = this
+            Dpaly(index,timer,_this)
         }
     render() {
         const { data } = this.state
@@ -42,4 +44,5 @@ import { connect  } from 'dva'
         )
     }
 }
-export default  connect(state=>state.Data)(content_inner)
+
+export default  connect(state=>state.Musicdata)(content_inner)

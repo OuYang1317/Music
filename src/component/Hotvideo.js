@@ -3,7 +3,7 @@ import React,{ Component } from 'react'
 import { Grid } from 'antd-mobile'
 import { connect } from 'dva'
 import {Newvideo} from '../Tools/DataUrl'
- class adultsexvideo extends Component {
+ class Hotvideo extends Component {
             constructor(){
                 super()
                 this.state = {
@@ -41,4 +41,4 @@ import {Newvideo} from '../Tools/DataUrl'
         )
     }
 }
-export default   connect(state=>state.Data)(adultsexvideo)
+export default   connect(state=>state.Data)(Hotvideo)

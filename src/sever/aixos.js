@@ -17,7 +17,7 @@ Inertsever.interceptors.request.use(
 )
 Inertsever.interceptors.response.use(
     function(response) {
-        nprogress.done()
+            nprogress.done()
       return response;
     },
     function(error) {

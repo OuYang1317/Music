@@ -1,5 +1,6 @@
 /* eslint-disable react/no-direct-mutation-state */
 /* eslint-disable react-hooks/rules-of-hooks */
+import Router from 'umi/router'
 import React,{ Component } from 'react'
 import { Grid } from 'antd-mobile'
 import { Songs } from '../Tools/DataUrl'
@@ -12,14 +13,14 @@ import { connect } from 'dva'
             }
         }
     componentDidMount(){
-        Songs(12).then(res=>{
+        Songs(9).then(res=>{
             this.setState({
                 data:res.data.playlists
             })
         })
     }
     tap(index){
-        console.log(index)
+        Router.push({pathname:'/nextPageToken',query:{id:index}})
     }
     render() {
         const { data } = this.state

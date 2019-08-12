@@ -4,9 +4,13 @@ import Img from '../assets/jkik.jpg'
 import router from 'umi/router'
 const Item = List.Item;
 const Brief = Item.Brief;
+var timer
  class my_putchar extends Component {
     tap(){
         console.log('aa')
+    }
+    componentWillUnmount () {
+        clearInterval(timer);
     }
     render() {
         return (

@@ -4,9 +4,6 @@ import router from 'umi/router'
 import { NavBar, Icon,Slider, WingBlank, WhiteSpace} from 'antd-mobile';
 import React, { Component } from 'react'
 import { connect }  from 'dva'
-    const log =(index) =>{
-        console.log(index)
-    }
     const cklickback = () =>{
         router.go(-1)
     }
@@ -15,10 +12,7 @@ class Songpage extends Component {
         constructor(){
             super()
             this.state={
-                    step:0,
-                    max:0,
-                    value:0,
-                    t:1,
+                t:0
             }
         }
         componentDidMount(){
@@ -53,10 +47,10 @@ class Songpage extends Component {
         var cc = document.getElementsByClassName('am-slider-handle')[0]
         var Record = document.getElementsByClassName('record')[0]
         if (audio.played.length === 1 && audio.paused === false) {
+            clearInterval(timer)
             pal.innerText = '开始'
             audio.pause();
             this.props.dispatch({type:'Musicdata/palyBuffer',payload:false})
-            clearInterval(timer)
         } else {
             pal.innerText = '停止'
             timer = setInterval(()=>{
@@ -66,10 +60,11 @@ class Songpage extends Component {
             },50)
             audio.play();
             this.props.dispatch({type:'Musicdata/palyBuffer',payload:true})
+            this.props.dispatch({type:'Musicdata/autoPal',payload:true})
         }
+        
     }
     render() {
-        const {step} = this.state
         return (
             <div>
             <div className="songbg"></div>
@@ -92,12 +87,11 @@ class Songpage extends Component {
                                     <WingBlank size="lg">
                                     <Slider
                                         style={{ marginLeft: 30, marginRight: 30 }}
-                                        defaultValue={step}
-                                        value={step}
+                                        defaultValue={0}
+                                        value={0}
                                         min={0}
                                         max={100}
                                         step={1}
-                                        onChange={(value)=>log(value)}
                                     />
                                     </WingBlank>
                             </div>

@@ -10,7 +10,6 @@ class audio extends Component {
         clearInterval(timerr)
         var audio = document.getElementById('audio')
         timerr = setInterval(() => {
-            console.log(Math.ceil(audio.currentTime), Math.floor(audio.duration))
             if (Math.ceil(audio.currentTime) == Math.floor(audio.duration)) {
                 var a = this.props.Musicurl[this.props.Musicurl.length - 1]
                 var index = this.props.Musicurl.indexOf(a)
@@ -32,10 +31,10 @@ class audio extends Component {
         clearInterval(timerr);
     }
     render() {
-        const { Musicurl } = this.props
+        const { Musicurl ,Autobuffer} = this.props
         return (
             <div>
-                <audio src={Musicurl[Musicurl.length - 1].url} autoPlay id="audio"></audio>
+                <audio src={Musicurl[Musicurl.length-1].url}  autoPlay={Autobuffer}  id="audio"></audio>
             </div>
         )
     }
