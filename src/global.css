@@ -175,7 +175,8 @@ body {
   background-repeat: no-repeat;
   background-position: top center;
   background-size:cover;
-  filter: blur(10px);
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
 }
 .record{
   width: 16.25rem;
@@ -187,7 +188,7 @@ body {
   border:1px solid #000;
   position: absolute;
   left: 50%;
-  top:35%;
+  top:30%;
   transform: translate(-50%,-50%);
 }
 .songsImg{
@@ -450,8 +451,12 @@ z-index: 99998;
 top: 0px;
 margin-bottom: 4.6875rem;
 }
+.songglist .am-list{
+padding-top: 12.1875rem;
+}
 .xiangqing .am-navbar-light{
-  background: #fff;
+  position: relative;
+  z-index: 9999;
 }
 .xiangqing .am-navbar-title{
   font-size: 16px !important;
@@ -461,10 +466,85 @@ margin-bottom: 4.6875rem;
   position: fixed;
   z-index: 999;
 }
-.SOnglistD{
-  padding-top:40px
+.item{
+  width: 100vw;
+  height:12.5rem;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 30;
+  background:url('https://s2.ax1x.com/2019/08/13/mCXC5D.jpg') no-repeat left top;
+  background-size: 100%;
 }
-
+.commit{
+  width: 100vw;
+  height: 8rem;
+  margin-top: 3.125rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.commit p{
+  word-wrap: break-word; 
+  word-break:break-all;
+  width: 8.125rem;
+  color: #fff;
+}
+.imagebox{
+  width: 110px;
+  height: 110px;
+  border: 3px solid #fff;
+  background-size: cover;
+}
+.SOnglistD{
+  position: absolute;
+  top: 0px;
+  z-index: 99999;
+  width: 100vw;
+  height: 85vh;
+  margin-bottom: 5rem;
+  
+}
+.title{
+  width: 100vw;
+  height: 13rem;
+  position: relative;
+}
+.bgimg12{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background:url('https://p2.music.126.net/DO5StRLp9Is10pNreqr6Fg==/7851612533948579.jpg') no-repeat left top;
+}
+.Divicon{
+  width: 7.5rem;
+  height: 7.5rem;
+  border: 3px solid #F55454;
+  margin-top: 10px;
+  margin-left: 10px;
+  text-align: center;
+  line-height: 7.5rem;
+  font-size: 65px;
+  color: #fff;
+}
+.navblack{
+  position: relative;
+  width: 100vw;
+  z-index: 99999;
+}
+.Divni{
+  width: 100%;
+  padding: 0px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.zIN{
+  position: absolute;
+  z-index: 9999
+}
 #nprogress .bar{
   z-index: 99999999;
 }
@@ -475,6 +555,15 @@ margin-bottom: 4.6875rem;
   height: 100vh;
   z-index:99999999;
   
+}
+.title .am-icon{
+  height: 40px;
+  width: 40px;
+  color: #fff;
+}
+.title .am-navbar-light .am-navbar-title{
+  color: #fff !important;
+  font-size: 18px !important;
 }
 .Login{
   background: url(./assets//333.jpg) no-repeat center;
@@ -532,9 +621,6 @@ margin-bottom: 4.6875rem;
 }
 .CodeContent .am-button,.LoginBtn .am-button{
   border-radius: 5px !important;
-}
-.Code .am-list-item{
-  /* padding-left: 0px; */
 }
 .LoginBtn{
   width: 16rem;

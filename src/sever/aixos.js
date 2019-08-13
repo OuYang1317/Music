@@ -2,9 +2,11 @@ import axios from 'axios'
 import nprogress from 'nprogress'
 import 'nprogress/nprogress.css'
 import {Geturl} from './config'
+
 const Inertsever = axios.create({
     timeout:5000,
-    baseURL:Geturl
+    withCredentials:true,
+    baseURL:Geturl,
 })
 Inertsever.interceptors.request.use(
     function(config){
@@ -17,6 +19,7 @@ Inertsever.interceptors.request.use(
 )
 Inertsever.interceptors.response.use(
     function(response) {
+        console.log(response)
             nprogress.done()
       return response;
     },

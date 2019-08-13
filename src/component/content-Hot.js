@@ -5,6 +5,7 @@ import React,{ Component } from 'react'
 import { Grid } from 'antd-mobile'
 import { Songs } from '../Tools/DataUrl'
 import { connect } from 'dva'
+var timer
  class contentHot extends Component {
         constructor(){
             super()
@@ -18,9 +19,20 @@ import { connect } from 'dva'
                 data:res.data.playlists
             })
         })
+       
     }
     tap(index){
+        var num = ''
+        this.state.data.map((item,i)=>{
+            if(item.id === index){
+                num = i
+            }
+        })
+        this.props.dispatch({type:'Musicdata/Songimg',payload:{img:this.state.data[num].coverImgUrl}})
         Router.push({pathname:'/nextPageToken',query:{id:index}})
+    }
+    componentWillUnmount () {
+        clearInterval(timer);
     }
     render() {
         const { data } = this.state

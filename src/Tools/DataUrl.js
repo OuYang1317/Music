@@ -38,23 +38,17 @@ export const ResetLogin = () =>{
     return get('/login/refresh')
 }
 
-// 发送验证码 
-export const Captcha = (phone) =>{
-    return get('/captcha/sent',{phone:phone})
-}
-// 验证验证码
-export const VerifyCap = (phone,captcha) =>{
-    return get('/captcha/verify',{phone:phone,captcha:captcha})
-}
 
 // 注册&忘记密码
 export const Register = (phone,password,captcha,nickname) =>{
     return get("/register/cellphone",{phone:phone,password:password,captcha:captcha,nickname:nickname})
 }
-// 检测手机号是否被绑定过了
-export const Cellphone = (phone) =>{
-    return get("/cellphone/existence/check",{phone:phone})
+// 退出登录
+export const Logout =()=>{
+    return get('/logout')
 }
+
+
 // 登录状态
 export const Buffer = () =>{
     return get('/login/status')
@@ -119,6 +113,7 @@ export const Getmusicdetail = (id) =>{
 export const Getalbum = (id) =>{
     return get ('/album',{id:id})
 }
+// 获取专辑内容
 export const Getsonglist = (id)=>{
     return get ('/playlist/detail',{id:id})
 }

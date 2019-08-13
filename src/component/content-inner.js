@@ -19,6 +19,9 @@ var timer ;
                 })
             })
         }
+        componentWillUnmount () {
+            clearInterval(timer);
+        }
         tap(index){
             const _this = this
             Dpaly(index,timer,_this)

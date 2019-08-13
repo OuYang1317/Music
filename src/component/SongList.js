@@ -18,16 +18,22 @@ var timer
             Dpaly(index,timer,_this)
         }
     componentDidMount(){
+        console.log(this.props.GetSongimg)
+        
         Getsonglist(this.props.id).then(res=>{
             this.setState({
                 list:res.data.playlist.tracks
             })
         })
+        var itmediv = document.getElementsByClassName('item')[0]
+        var itembox = document.getElementsByClassName('imagebox')[0]
+        itmediv.style.backgroundImage="url("+this.props.GetSongimg.img+')'
+        itembox.style.backgroundImage= "url("+this.props.GetSongimg.img+')'
     }
     render() {
         const { list } = this.state
         return (
-            <div className='SOnglistD'>
+            <div className="songglist">
                  <List>
                         {
                             list.map((item,index) => (

@@ -37,6 +37,7 @@ class Songpage extends Component {
                 pal.innerText = '开始'
                 clearInterval(timer)
             }
+            
     }
     componentWillUnmount () {
         clearInterval(timer);
@@ -74,6 +75,7 @@ class Songpage extends Component {
                      icon={<Icon type="left" />}
                      onLeftClick={()=>cklickback()}
                     >{this.props.songname}</NavBar>
+                   
                 </div>
                 <div className="record">
                     <div className="songsImg">

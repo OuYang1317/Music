@@ -9,7 +9,8 @@ export default {
         songNum:0,
         Sreachdata:[],
         Sreachflag:{none:"none",dis:'block'},
-        Autobuffer:false
+        Autobuffer:false,
+        GetSongimg:{img:''}
     },
      
     reducers:{
@@ -33,6 +34,9 @@ export default {
         },
         autoPal(state,action){
             return { ...state,...{Autobuffer:action.payload} }
+        },
+        Songimg(state,action){
+            return { ...state,...{GetSongimg:{img:action.payload.img}}}
         }
     }
 }
