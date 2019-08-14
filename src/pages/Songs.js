@@ -1,11 +1,15 @@
-import React from 'react'
 import Songpage from '../component/Songpage'
-function Songs() {
-    return (
-        <div className="Bgimg">
+import React, { Component } from 'react'
+var timer
+export default class Songs extends Component {
+    componentWillUnmount () {
+        clearInterval(timer);
+    }
+    render() {
+        return (
+            <div className="Bgimg">
             <Songpage />
         </div>
-    )
+        )
+    }
 }
-
-export default Songs

@@ -8,7 +8,7 @@ const Loginbtn = (a,b) =>{
         console.log(res)
         console.log(res.headers)
         localStorage.setItem('id', JSON.stringify(res.data.account.id))
-        // router.push('/my_putchar')
+        router.push('/my_putchar')
     }).catch(err=>{
         if(err.response.data.code !== "200"){
             Toast.fail(err.response.data.msg, 2);

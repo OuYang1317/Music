@@ -1,61 +1,41 @@
-import Img from '../assets/jkik.jpg'
 import React, { Component } from 'react'
 import { Hottopic } from '../Tools/DataUrl'
 var timer
 class Buzzloop extends Component {
+        constructor(){
+            super()
+            this.state = {
+                list:[]
+            }
+        }
+
+
     componentDidMount(){
         Hottopic().then(res=>{
-            console.log(res)
+            this.setState({
+                list:res.data.hot
+            })
         })
     }
     componentWillUnmount () {
         clearInterval(timer);
     }
+    
     render() {
+        const { list } = this.state
         return (
             <div>
             <div className="Buzzloop_">
             <div className="Buzzloop_content">
-                <div className="nihao">
-                    <img src= {Img}  alt="图片"/>
-                    <p>好棒棒 好棒棒 好棒棒 好棒棒好棒棒</p>
-                    <h3><span>我说的</span>  <span>赞:{123}</span></h3>
-                </div>
-                <div className="nihao">
-                    <img src= {Img}  alt="图片"/>
-                    <p>好棒棒 好棒棒 好，棒棒 好棒棒棒</p>
-                    <h3><span>我说的</span>  <span>赞:{123}</span></h3>
-                </div>
-                <div className="nihao">
-                    <img src= {Img}  alt="图片"/>
-                    <p>好棒棒 好棒棒 好棒棒 好棒棒好棒棒</p>
-                    <h3><span>我说的</span>  <span>赞:{123}</span></h3>
-                </div>
-                <div className="nihao">
-                    <img src= {Img}  alt="图片"/>
-                    <p>好棒棒 好棒棒 好棒棒 好棒棒好棒棒</p>
-                    <h3><span>我说的</span>  <span>赞:{123}</span></h3>
-                </div>
-                <div className="nihao">
-                    <img src= {Img}  alt="图片"/>
-                    <p>好棒棒 好棒棒 好棒棒 好棒棒好棒棒</p>
-                    <h3><span>我说的</span>  <span>赞:{123}</span></h3>
-                </div>
-                <div className="nihao">
-                    <img src= {Img}  alt="图片"/>
-                    <p>好棒棒 好棒棒 好棒棒 好棒棒好棒棒</p>
-                    <h3><span>我说的</span>  <span>赞:{123}</span></h3>
-                </div>
-                <div className="nihao">
-                    <img src= {Img}  alt="图片"/>
-                    <p>好棒棒 好棒棒 好棒棒 好棒棒好棒棒</p>
-                    <h3><span>我说的</span>  <span>赞:{123}</span></h3>
-                </div>
-                <div className="nihao">
-                    <img src= {Img}  alt="图片"/>
-                    <p>好棒棒 好棒棒 好棒棒 好棒棒好棒棒</p>
-                    <h3><span>我说的</span>  <span>赞:{123}</span></h3>
-                </div>
+                {
+                    list.map((item,index)=>{
+                       return    <div className="nihao" key={item.actId}  >
+                                <img src= {item.sharePicUrl}  alt="图片"/>
+                                <p>{item.text[0]}</p>
+                                <h3><span>{item.title}</span></h3>
+                            </div>
+                    })
+                }
             </div>
             </div>
         </div>
