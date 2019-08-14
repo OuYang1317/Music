@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 /* eslint-disable react/no-direct-mutation-state */
 /* eslint-disable react-hooks/rules-of-hooks */
 import Router from 'umi/router'
@@ -23,11 +24,7 @@ var timer
     }
     tap(index){
         var num = ''
-        this.state.data.map((item,i)=>{
-            if(item.id === index){
-                num = i
-            }
-        })
+        this.state.data.map((item,i)=>{  if(item.id === index){ num = i}})
         this.props.dispatch({type:'Musicdata/Songimg',payload:{img:this.state.data[num].coverImgUrl}})
         Router.push({pathname:'/nextPageToken',query:{id:index}})
     }

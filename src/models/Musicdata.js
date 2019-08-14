@@ -10,9 +10,8 @@ export default {
         Sreachdata:[],
         Sreachflag:{none:"none",dis:'block'},
         Autobuffer:false,
-        GetSongimg:{img:''}
+        GetSongimg:{img:''},
     },
-     
     reducers:{
         changes(state,action){
             return { ...state,...{ songname:action.payload.songname,songer:action.payload.songer,songimg:action.payload.songimg}}

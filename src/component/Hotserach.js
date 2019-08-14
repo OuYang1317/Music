@@ -1,17 +1,13 @@
 /* eslint-disable react/no-direct-mutation-state */
 import React, { Component } from 'react'
 import { SearchBar, WhiteSpace, List} from 'antd-mobile'
-import { Hotser, Serach,Logout} from '../Tools/DataUrl'
+import { Hotser, Serach} from '../Tools/DataUrl'
 import {Dpaly} from '../Tools/dianjibofang'
 import { connect } from 'dva'
 const Item = List.Item;
 const Brief = Item.Brief;
 var timer;
 // 搜索 标签
-const tap = (name, Point) => {
-    
-    
-}
 class Hotserach extends Component {
     constructor() {
         super()
@@ -20,8 +16,11 @@ class Hotserach extends Component {
             sralist: [],
         }
     }
-    tap(){
-           var name =  this.refs.serch.state.value
+    tap(index){
+        var name = index
+        if(index === undefined){
+            name =  this.refs.serch.state.value
+        }
         var a = document.getElementsByClassName('Contentlist')
         this.props.dispatch({type:'Musicdata/Show',payload:{none:"block",dis:'none'}})
         Serach(name).then(res => {
@@ -57,7 +56,7 @@ class Hotserach extends Component {
     }
     // 热搜标签 点击搜索
     sera(keyword) {
-        this.tap(keyword, this)
+        this.tap(keyword)
     }
    
     // 点击获取播放地址

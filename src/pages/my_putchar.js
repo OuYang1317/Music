@@ -1,28 +1,37 @@
+/* eslint-disable array-callback-return */
 import React, { Component } from 'react'
 import {List} from 'antd-mobile'
 import router from 'umi/router'
-import { Userlistplay ,Userbuffer ,ResetLogin } from '../Tools/DataUrl'
+import { Userlistplay} from '../Tools/DataUrl'
+import { connect } from 'dva'
 const Item = List.Item;
 var timer
-const Diji=(a)=>{
-    router.push({pathname:'/nextPageToken',query:{id:a}})
-}
  class my_putchar extends Component {
         constructor(){
             super()
             this.state={
                 mylist:[],
-                userlist:[]
+                userlist:[],
             }
         }
     tap(){
         console.log('aa')
     }
-
+    Diji(index){
+        var num = ''
+        this.state.mylist.map((item,i)=>{  if(item.id === index){ num = i}})
+        this.props.dispatch({type:'Musicdata/Songimg',payload:{img:this.state.mylist[num].coverImgUrl}})
+        router.push({pathname:'/nextPageToken',query:{id:index}})
+    }
+    addPag(index){
+        var num = ''
+        this.state.userlist.map((item,i)=>{  if(item.id === index){ num = i}})
+        this.props.dispatch({type:'Musicdata/Songimg',payload:{img:this.state.userlist[num].coverImgUrl}})
+        router.push({pathname:'/nextPageToken',query:{id:index}})
+    }
     componentDidMount(){
         const id = JSON.parse(localStorage.getItem('id')) 
         Userlistplay(id).then(res=>{
-            console.log(res)
             res.data.playlist.map(item=>{
                 if(item.userId === id){
                     this.setState({
@@ -34,16 +43,8 @@ const Diji=(a)=>{
                     })
                 }
             })
-            console.log(this.state.mylist)
         })    
-        Userbuffer(id).then(res=>{
-            console.log(res)
-        })
-        ResetLogin().then(res=>{
-            console.log(res)
-        })
     }
-
     componentWillUnmount () {
         clearInterval(timer);
     }
@@ -68,7 +69,7 @@ const Diji=(a)=>{
                 <div>
                     {
                         mylist.map((item,index)=>{
-                          return  <Item key={index} thumb={item.coverImgUrl} onClick={() =>Diji(item.id)}>{item.name}</Item>
+                          return  <Item key={index} thumb={item.coverImgUrl} onClick={this.Diji.bind(this,item.id)}>{item.name}</Item>
                         })
                     }
                 </div> 
@@ -76,7 +77,7 @@ const Diji=(a)=>{
                 <div> 
                     {
                         userlist.map((item,index)=>{
-                            return <Item key={index} thumb={item.coverImgUrl} onClick={() =>Diji(item.id)}>{item.name}</Item>
+                            return <Item key={index} thumb={item.coverImgUrl} onClick={this.addPag.bind(this,item.id)}>{item.name}</Item>
                         })
                     }
                     
@@ -86,4 +87,4 @@ const Diji=(a)=>{
         )
     }
 }
-export default my_putchar
+export default connect(state => state.Musicdata)(my_putchar)

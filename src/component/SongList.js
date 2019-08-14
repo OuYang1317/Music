@@ -18,8 +18,6 @@ var timer
             Dpaly(index,timer,_this)
         }
     componentDidMount(){
-        console.log(this.props.GetSongimg)
-        
         Getsonglist(this.props.id).then(res=>{
             this.setState({
                 list:res.data.playlist.tracks

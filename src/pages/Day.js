@@ -6,7 +6,6 @@ import router from 'umi/router';
 import { connect } from 'dva'
 var Timerr = new Date()
 var Daytime = Timerr.getDate()
-console.log(Daytime)
 const Item = List.Item;
 const Brief = Item.Brief;
 var timerr
@@ -26,8 +25,6 @@ var timerr
     }
         componentDidMount(){
             Daysongs().then(res=>{
-                console.dir(res.data.data.dailySongs)
-                
                  this.setState({
                      list:res.data.data.dailySongs
                  })

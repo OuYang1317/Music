@@ -1,9 +1,19 @@
-import React from 'react'
 import Img from '../assets/jkik.jpg'
-function Buzzloop() {
-    
-    return (
-        <div>
+import React, { Component } from 'react'
+import { Hottopic } from '../Tools/DataUrl'
+var timer
+class Buzzloop extends Component {
+    componentDidMount(){
+        Hottopic().then(res=>{
+            console.log(res)
+        })
+    }
+    componentWillUnmount () {
+        clearInterval(timer);
+    }
+    render() {
+        return (
+            <div>
             <div className="Buzzloop_">
             <div className="Buzzloop_content">
                 <div className="nihao">
@@ -49,7 +59,8 @@ function Buzzloop() {
             </div>
             </div>
         </div>
-    )
+        )
+    }
 }
 
 export default Buzzloop
