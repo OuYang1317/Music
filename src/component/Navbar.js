@@ -11,7 +11,7 @@ function Navbar() {
     return (
         <div>
             <Tabs tabs={tabs}
-            initialPage={0}
+            initialPage={1}
             onChange={(tab) => { 
                 router.push('/'+tab.tab);
             }}

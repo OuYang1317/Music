@@ -65,7 +65,7 @@ body {
   margin-top: .4375rem;
   width: 3.875rem;
   height: 4rem;
-  background: url(./assets/icon.png)  no-repeat; 
+  background: url('https://s2.ax1x.com/2019/08/14/mFOhmn.png')  no-repeat; 
   background-size: 180px;
   /* 2px */
   background-position:-120px 4px;
@@ -146,32 +146,32 @@ body {
 }
 .project .am-list-content{
   padding-left: 50px;
-  background: url(./assets/bg-colwon.png) no-repeat;
+  background: url('https://s2.ax1x.com/2019/08/14/mFLA8e.png') no-repeat;
   background-size:36px;
   background-position: 9px -10px;
 }
 .project1 .am-list-content{
   padding-left: 50px;
-  background: url(./assets/bg-colwon.png) no-repeat;
+  background: url('https://s2.ax1x.com/2019/08/14/mFLA8e.png') no-repeat;
   background-size:36px;
   background-position: 7px -63px;
 }
 .project2 .am-list-content{
   padding-left: 50px;
-  background: url(./assets/bg-colwon.png) no-repeat;
+  background: url('https://s2.ax1x.com/2019/08/14/mFLA8e.png') no-repeat;
   background-size:36px;
   background-position: 5px -215px;
 }
 .project3 .am-list-content{
   padding-left: 50px;
-  background: url(./assets/bg-colwon.png) no-repeat;
+  background: url('https://s2.ax1x.com/2019/08/14/mFLA8e.png') no-repeat;
   background-size:36px;
   background-position: 5px -270px;
 }
 .songbg{
   width: 100vw;
   height: 100vh;
-  background-image:url(./assets/jkik.jpg);
+  background-image:url('https://s2.ax1x.com/2019/08/14/mFLnbt.jpg');
   background-repeat: no-repeat;
   background-position: top center;
   background-size:cover;
@@ -182,7 +182,7 @@ body {
   width: 16.25rem;
   height: 16.25rem;
   border-radius:50%;
-  background: url(./assets/changpianbg.png) no-repeat;
+  background: url('https://s2.ax1x.com/2019/08/14/mFLQ58.png') no-repeat;
   background-position: -33px -16px;
   background-size: 20.375rem;
   border:1px solid #000;
@@ -285,7 +285,7 @@ body {
 }
 .Hockey_header .am-card{
   min-height: 4.5rem;
-  background: url(./assets/jkik.jpg) no-repeat;
+  background: url('https://s2.ax1x.com/2019/08/14/mFLnbt.jpg') no-repeat;
   background-position: 0px -60px
 }
 .Hockey_header .am-card-body span{
@@ -311,7 +311,7 @@ body {
 }
 
 .bg{
-  background: url(./assets/bg.jpeg) no-repeat center;
+  background: url('https://s2.ax1x.com/2019/08/14/mFOuQJ.jpg') no-repeat center;
   padding-top: 10px;
 }
 .am-flexbox{
@@ -375,7 +375,7 @@ body {
   
 }
 .bgImg{
-  background: url(./assets/333.jpg) no-repeat center;
+  background: url('https://s2.ax1x.com/2019/08/14/mFqq4U.jpg') no-repeat center;
   background-size: cover;
 
 }
@@ -564,7 +564,7 @@ padding-top: 12.1875rem;
   font-size: 18px !important;
 }
 .Login{
-  background: url(./assets//333.jpg) no-repeat center;
+  background: url('https://s2.ax1x.com/2019/08/14/mFOdOA.jpg') no-repeat center;
   background-size: cover;
 }
 .buJu{
